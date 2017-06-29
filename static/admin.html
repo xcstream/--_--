@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/1.3.7/index.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/1.3.7/theme-default/index.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.7.0/js/md5.min.js"></script>
+    <title>--_--</title>
+    <style>
+        [v-cloak] {  display: none;  }
+    </style>
+</head>
+<body style="margin:0;padding:0;">
+<div id="app" v-cloak>
+    <el-row class="tac" >
+        <el-col style="width:170px;height:100%;background: #eeeeee;position:fixed">
+            <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+                <el-menu-item index="1"><i class="el-icon-menu"></i>最近文章</el-menu-item>
+                <el-menu-item index="2"><i class="el-icon-menu"></i>分类</el-menu-item>
+                <el-menu-item index="3"><i class="el-icon-setting"></i>关于</el-menu-item>
+            </el-menu>
+        </el-col>
+        <el-col :span="20" style="min-width:800px;margin-left:170px">
+            <div style="margin: 13px" v-for="title in [1,3,4,5,6,7,8,9,10,11,12]">
+                <a :href="'#'+md5(title)"><el-card class="box-card">{{title}}</el-card></a>
+            </div>
+        </el-col>
+    </el-row>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
